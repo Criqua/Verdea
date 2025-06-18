@@ -1,0 +1,62 @@
+---
+import { Leaf, RefreshCw, Award, Package } from 'lucide-react';
+
+const items = [
+  {
+    icon: Leaf,
+    title: 'Productos Sostenibles',
+    desc: 'Ingredientes 100% naturales y procesos respetuosos con el medio ambiente.'
+  },
+  {
+    icon: RefreshCw,
+    title: 'Eco-Friendly',
+    desc: 'Empaques biodegradables y libres de plásticos para una huella cero.'
+  },
+  {
+    icon: Award,
+    title: 'Alta Calidad',
+    desc: 'Fórmulas testadas para ofrecerte los mejores resultados de cuidado.'
+  },
+  {
+    icon: Package,
+    title: 'Empaque Artesanal',
+    desc: 'Detalles hechos a mano y sello de cera que reflejan nuestra esencia.'
+  },
+];
+---
+<section id="pqVerdea" class="relative bg-white py-16 lg:py-24">
+  <!-- Imagen centrada en la parte superior del footer ubicada a la izquierda -->
+  <img src="/images/stemVariant.webp" alt="Hoja verdea" class="absolute top-0 left-20 transform rotate-140 -translate-y-1/2 -scale-x-100 w-32 h-auto z-10">
+  <div class="container mx-auto px-6 lg:px-24">
+    <h2 class="text-3xl lg:text-4xl font-bold text-green-900 text-center mb-16">
+      ¿Por qué Verdea?
+    </h2>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 xl:grid-cols-4 gap-8">
+      {items.map(({ icon: Icon, title, desc }) => (
+        <div class="bg-gray-50 rounded-lg hover:shadow-lg transition">
+          <div class="relative pt-16 px-6 pb-6 text-center">
+            {/* Contenedor con ícono flotante en su parte superior*/}
+            <div class="absolute -top-8 inset-x-0 flex justify-center">
+              <div class="w-20 h-20 bg-green-100 rounded-full opacity-50 blur-sm"></div>
+              <div class="absolute inset-0 flex items-center justify-center">
+                <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center z-10">
+                  <Icon className="w-8 h-8 text-green-600" aria-hidden="true" />
+                </div>
+              </div>
+            </div>
+
+            {/* Título en una sola línea (sin envolverse) */}
+            <h3 class="mt-8 text-lg font-semibold text-gray-900 mb-2 whitespace-nowrap">
+              {title}
+            </h3>
+            {/* Descripción */}
+            <p class="text-gray-600 text-sm leading-relaxed">
+              {desc}
+            </p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
