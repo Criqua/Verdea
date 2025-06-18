@@ -1,0 +1,40 @@
+---
+import { Leaf, AlignJustify, X } from 'lucide-react';
+---
+<script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+
+<header x-data="{ open: false }" class="px-4 lg:px-6 h-16 flex items-center border-b bg-white/80 backdrop-blur-sm sticky top-0 z-50">
+    <!-- Logo -->
+    <a href="#hero" class="flex items-center gap-2">
+        <!--
+        <Leaf className="h-8 w-8 text-green-600" />
+        <span class="text-2xl font-bold text-green-800">Verdea</span>
+        -->
+        <img src="/images/VerdeaLogoVariantGreen.webp" class="h-10"/>
+    </a>
+
+    <!-- Desktop nav -->
+    <nav class="ml-auto hidden md:flex gap-6">
+        <a href="#hero"     class="text-sm font-medium hover:text-green-600 transition">Inicio</a>
+        <a href="#productos"class="text-sm font-medium hover:text-green-600 transition">Productos</a>
+        <a href="#nosotros"class="text-sm font-medium hover:text-green-600 transition">Nosotros</a>
+        <a href="#contacto"class="text-sm font-medium hover:text-green-600 transition">Contacto</a>
+    </nav>
+
+    <!-- Mobile hamburger -->
+    <button @click="open = true" class="ml-auto md:hidden p-2 rounded-md text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-green-500 transition" aria-label="Abrir menú">
+        <AlignJustify className="w-8 h-8" />
+    </button>
+
+    <!-- Mobile menu overlay mejorado -->
+    <div x-show="open" x-cloak @click.outside="open = false" class="absolute left-0 right-0 top-full mt-2 mx-2 bg-white border border-green-200 rounded-lg shadow-lg flex flex-col items-center space-y-4 py-6 z-50 md:hidden">
+        <button @click="open = false" class="absolute top-2 right-4 p-2 rounded-md text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-green-500 transition" aria-label="Cerrar menú">
+            <X />
+        </button>
+
+        <a href="#hero"      @click="open = false" class="hover:text-green-600">Inicio</a>
+        <a href="#productos" @click="open = false" class="hover:text-green-600">Productos</a>
+        <a href="#nosotros"  @click="open = false" class="hover:text-green-600">Nosotros</a>
+        <a href="#contacto"  @click="open = false" class="hover:text-green-600">Contacto</a>
+    </div>
+</header>
