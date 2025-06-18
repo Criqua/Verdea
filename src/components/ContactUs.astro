@@ -1,0 +1,39 @@
+<section id="contacto" class="relative py-16 lg:py-24 overflow-hidden">
+  <!-- Fondo de la sección -->
+  <img src="/images/contactUs_bg.webp" alt="Detalle Verdea" class="absolute inset-0 w-full h-full object-cover opacity-50 z-0 pointer-events-none" aria-hidden="true"/>
+
+  <!-- Overlay semitransparente para el bg de Contact Us -->
+  <div class="absolute inset-0 bg-gray-900/60 z-10"></div>
+
+  <div class="relative container mx-auto px-6 lg:px-24 grid grid-cols-1 lg:grid-cols-2 items-center gap-12 z-20">
+    <!-- Formulario -->
+    <div class="bg-white rounded-2xl p-8 shadow-lg">
+      <h2 class="text-3xl font-bold text-green-900 mb-4">Contáctanos</h2>
+      <p class="text-gray-600 mb-6">
+        ¿Tienes alguna pregunta o sugerencia? Envíanos un mensaje y te responderemos lo antes posible.
+      </p>
+      <form onsubmit="event.preventDefault(); alert('¡Formulario enviado!');" class="space-y-4">
+        <div>
+          <label for="name" class="block text-gray-700 mb-2">Nombre</label>
+          <input id="name" type="text" placeholder="Tu nombre" class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500" required/>
+        </div>
+        <div>
+          <label for="email" class="block text-gray-700 mb-2">Email</label>
+          <input id="email" type="email" placeholder="Tu correo electrónico" class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500" required/>
+        </div>
+        <div>
+          <label for="message" class="block text-gray-700 mb-2">Mensaje</label>
+          <textarea id="message" rows="4" placeholder="Escribe tu mensaje" class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500" required></textarea>
+        </div>
+        <button type="submit" class="w-full cursor-pointer inline-flex justify-center py-3 bg-green-600 text-white font-medium rounded-md shadow-[0_6px_0_rgba(0,0,0,0.2)] hover:shadow-[0_4px_0_rgba(0,0,0,0.15)] transition-shadow">
+          Enviar Mensaje
+        </button>
+      </form>
+    </div>
+
+    <!-- Imagen -->
+    <div class="flex justify-center lg:justify-end">
+      <img src="/images/image.webp" alt="Ilustración de contacto Verdea" class="w-full max-w-md rounded-xl shadow-2xl object-cover filter opacity-80"/>
+    </div>
+  </div>
+</section>
