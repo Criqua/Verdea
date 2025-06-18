@@ -1,0 +1,62 @@
+---
+import { Globe, Droplet, Users, MapPin } from 'lucide-react';
+
+const features = [
+  {
+    icon: Globe,
+    title: 'Origen Local',
+    desc: 'Apoyamos a agricultores y proveedores de Nicaragua para impulsar la economía regional y reducir huella de transporte.'
+  },
+  {
+    icon: Droplet,
+    title: 'Ingredientes Puros',
+    desc: 'Utilizamos aloe vera, café local, coco y pantenol, sin sulfatos ni parabenos, para cuidar tu piel y cabello de manera natural.'
+  },
+  {
+    icon: Users,
+    title: 'Artesanal',
+    desc: 'Cada barra se mezcla, moldea y empaqueta a mano, garantizando calidad y un sello único en cada lote.'
+  },
+  {
+    icon: MapPin,
+    title: 'Compromiso Ambiental',
+    desc: 'Nuestras cajas de cartón y cierres de cera son 100% reciclables y promovemos un ciclo de vida responsable.'
+  },
+];
+---
+<section id="nosotros" class="relative bg-white py-16 lg:py-24">
+  <!-- Imagen centrada en la parte superior del footer ubicada a la izquierda -->
+  <img src="/images/leafVariant.webp" alt="Hoja verdea" class="absolute top-0 -left-12 filter opacity-60 transform -translate-y-1/2 -scale-x-100 w-auto h-auto z-10"/>
+  <div class="container mx-auto px-6 lg:px-24 grid gap-12 lg:grid-cols-2 items-center">
+    <div class="space-y-6">
+      <h2 class="text-3xl lg:text-4xl font-bold text-green-900 text-center">
+        Sobre Nosotros
+      </h2>
+      <p class="text-gray-600 max-w-prose text-center lg:text-left">
+        Somos <strong>Verdea</strong>, un emprendimiento nicaragüense que cree que cuidar de ti no debería
+        significar dañar tu salud… ni al planeta. Producimos jabones, champús y acondicionadores sólidos
+        100% naturales, libres de plástico y en empaques biodegradables, combinando tradición
+        artesanal con compromiso ecológico.
+      </p>
+
+      <ul class="space-y-6">
+        {features.map(({ icon: Icon, title, desc }) => (
+          <li class="flex items-start">
+            <span class="inline-flex items-center justify-center p-2 bg-green-100 rounded-full mr-2" aria-hidden="true">
+              <Icon className="w-4 h-4 text-green-600" />
+            </span>     
+            <div>
+              <h4 class="font-semibold text-green-800">{title}</h4>
+              <p class="text-gray-600">{desc}</p>
+            </div>
+          </li>
+        ))}
+     </ul>
+    </div>
+
+    <div class="relative">
+      <img src="/images/groupedIngredients.webp" alt="Proceso semi-artesanal de producción Verdea" class="rounded-xl shadow-2xl w-full object-cover filter opacity-90"/>
+      <div class="absolute inset-0 rounded-xl pointer-events-none" />
+    </div>
+  </div>
+</section>
