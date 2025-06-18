@@ -1,0 +1,139 @@
+---
+import { Eye } from 'lucide-react';
+import QuickViewModal from './ProdQuickViewModal.astro';
+import ProdQuickViewModal from './ProdQuickViewModal.astro';
+
+const products = [
+  {
+    id: 1,
+    img: '/images/shampoo_prot.webp',
+    alt: 'Pastilla de Shampoo de Fresa',
+    name: 'Pastilla de Shampoo de Fresa',
+    price: '$22.99',
+    ingredients: [
+      'Base de jabón de glicerina (fragancia suave de fresa natural)',
+      'Aceite de coco (limpiador y acondicionador)',
+      'Glicerina (humectante)',
+      'Panthenol (pro-vitamina B5 para fortalecimiento capilar)',
+      'Polvo de aloe vera (calmante y acondicionador)'
+    ],
+    properties: [
+      'Limpieza suave y eficaz',
+      'Hidratación prolongada',
+      'Fortalecimiento de la fibra capilar',
+      'Calmante para el cuero cabelludo'
+    ],
+    benefits: [
+      'Cabello más suave y manejable',
+      'Previene la caspa y excesos de grasa',
+      'Promueve el crecimiento saludable',
+      'Formato sólido que reduce residuos plásticos'
+    ],
+    briefDesc: 'Champú sólido con fragancia natural de fresa que nutre y fortalece tu cabello.'
+  },
+  {
+    id: 2,
+    img: '/images/conditioner_prot.webp',
+    alt: 'Pastilla de Acondicionador',
+    name: 'Pastilla de Acondicionador',
+    price: '$18.99',
+    ingredients: [
+      'Base de glicerina (sin fragancia o con fragancia suave de fresa o miel)',
+      'Aceite de coco (emoliente y suavizante)',
+      'Glicerina (humectante)',
+      'Panthenol (pro-vitamina B5 para reparación capilar)',
+      'Polvo de aloe vera (hidratación y suavidad)'
+    ],
+    properties: [
+      'Desenredo instantáneo',
+      'Sellado de cutícula',
+      'Suavidad y brillo',
+      'Hidratación profunda'
+    ],
+    benefits: [
+      'Peinado más fácil y rápido',
+      'Reducción del quiebre y puntas abiertas',
+      'Cabello protegido y saludable',
+      'Envase cero plástico, formato sólido duradero'
+    ],
+    briefDesc: 'Acondicionador sólido con aloe vera y panthenol para suavidad e hidratación.'
+  },
+  {
+    id: 3,
+    img: '/images/lavenderSoap_prot.webp',
+    alt: 'Jabón de Lavanda',
+    name: 'Jabón de Lavanda',
+    price: '$15.99',
+    ingredients: [
+      'Base de jabón de glicerina (aceite esencial de lavanda)',
+      'Café molido fino (exfoliante natural)',
+      'Aceite de coco (limpieza e hidratación)',
+      'Glicerina (humectante)',
+      'Flores secas de lavanda (decorativas y aromáticas)'
+    ],
+    properties: [
+      'Exfoliación suave a media',
+      'Aroma relajante y floral',
+      'Hidratación y nutrición de la piel',
+      'Eliminación de impurezas'
+    ],
+    benefits: [
+      'Piel más suave y renovada',
+      'Estimula la circulación con la exfoliación',
+      'Efecto aromaterapia relajante',
+      'Formato sólido biodegradable'
+    ],
+    briefDesc: 'Jabón exfoliante con café molido y flores de lavanda para una piel suave.'    
+  }
+];
+---
+<section id="productos" class="relative bg-gray-50 py-16 lg:py-24">
+  <!-- Imagen centrada en la parte superior del footer ubicada a la derecha -->
+  <img src="/images/leafVariant.webp" alt="Hoja verdea" class="absolute top-0 -right-12 filter opacity-50 transform -translate-y-1/2 w-auto h-auto z-20"/>
+  <div class="container mx-auto px-4 sm:px-6 lg:px-24">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl lg:text-4xl font-bold text-green-900 mb-4">
+        Nuestros Productos Insignia
+      </h2>
+      <p class="max-w-[900px] mx-auto text-gray-600 md:text-lg">
+        Cada producto está elaborado a mano con materia prima nicaragüense de la más alta calidad
+      </p>
+    </div>
+
+    <div class="mx-auto grid grid-cols-1 gap-6 py-5 max-w-5xl lg:grid-cols-3 lg:gap-8">
+      {products.map((product) => (
+        <div class="bg-white rounded-xl shadow-md hover:shadow-lg transition-transform transform hover:-translate-y-1 group flex flex-col overflow-hidden w-full">
+          <div class="overflow-hidden">
+            <img src={product.img} alt={product.alt} class="w-full h-80 object-cover md:object-contain transition-transform duration-500 group-hover:scale-105 md:bg-[#F0EBE6]"/>
+          </div>
+          <div class="p-6 flex flex-col flex-1">
+            <h3 class="text-xl font-semibold text-green-800 mb-4 leading-tight min-h-[3rem]">
+              {product.name}
+            </h3>
+            <p class="text-gray-600 flex-1 mb-6">
+              {product.briefDesc}
+            </p>
+            <div class="flex flex-col items-center gap-4 sm:flex-row sm:justify-between sm:items-center">
+              <span class="text-2xl font-bold text-green-600">
+                {product.price}
+              </span>
+              <button class="quick-view-btn inline-flex items-center px-4 py-2 bg-green-600 text-white rounded-md shadow-[0_6px_0_rgba(0,0,0,0.2)] hover:shadow-[0_4px_0_rgba(0,0,0,0.15)] focus:outline-none focus:ring-2 focus:ring-green-500 transition-shadow cursor-pointer" 
+              data-img={product.img} 
+              data-alt={product.alt} 
+              data-name={product.name}
+              data-desc={product.briefDesc}
+              data-price={product.price}
+              data-ingredients={JSON.stringify(product.ingredients)} data-properties={JSON.stringify(product.properties)} data-benefits={JSON.stringify(product.benefits)}>
+                <Eye className="w-5 h-5 mr-2" />
+                Vista Rápida
+              </button>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <!-- Adición del componente de modal para detalle de productos -->
+  <ProdQuickViewModal />
+</section>
